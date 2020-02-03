@@ -6,6 +6,7 @@ import os, datetime
 appointment_count = "1"
 termin_id = os.environ['termin_id']
 url = os.environ['url'] + termin_id
+print(url)
 count_drp_dwn = '//select'
 submit_count = '//input[@type="submit"]'
 bookable_date = '//a[contains(@class, "nat_calendar_weekday_bookable")]'
@@ -38,13 +39,13 @@ try:
             appointments.append(avail_time.get_attribute("value"))
         # print("{} :: {}".format(date_text, appointmentsera))
         dates[date_text] = appointments
-    print(dates)
+    # print(dates)
 
     # Make HTML for upload
     hmtl_data = "<html><body><table border=1><tr><th>Date</th><th>Time Slots</th></tr>"
     for date in dates:
         hmtl_data += "<tr><td><b>{}</b></td><td>{}</td></tr>".format(date, ", ".join(dates[date]))
-    hmtl_data += "</table><br><br><br>Last Updated: {}</body></html>".format(datetime.datetime.now())
+    hmtl_data += "</table><br><br><br>Last Updated: {}  GMT</body></html>".format(datetime.datetime.now())
     with open("results/index.html", "w") as fp:
         fp.write(hmtl_data)
 
