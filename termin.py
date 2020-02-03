@@ -38,14 +38,14 @@ try:
             appointments.append(avail_time.get_attribute("value"))
         # print("{} :: {}".format(date_text, appointmentsera))
         dates[date_text] = appointments
-    # print(dates)
+    print(dates)
 
     # Make HTML for upload
     hmtl_data = "<html><body><table border=1><tr><th>Date</th><th>Time Slots</th></tr>"
     for date in dates:
         hmtl_data += "<tr><td><b>{}</b></td><td>{}</td></tr>".format(date, ", ".join(dates[date]))
     hmtl_data += "</table></body></html>"
-    with open("index.html", "w") as fp:
+    with open("results/index.html", "w") as fp:
         fp.write(hmtl_data)
 
 finally:
