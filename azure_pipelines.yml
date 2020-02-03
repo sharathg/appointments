@@ -2,6 +2,14 @@
 pool:
   vmImage: 'macOS 10.13'
 
+schedules:
+- cron: "0/15 * * * *"
+  displayName: Run Every 15 mins
+  branches:
+    include:
+    - master
+  always: true
+
 steps:
 
 - bash: 'pip3 install -r requirements.txt'
