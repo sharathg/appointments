@@ -20,6 +20,6 @@ steps:
     serverUrl: $(ftp.url)
     username: $(ftp.user)
     password: $(ftp.pass)
-    rootDirectory: '/'
+    rootDirectory: 'results/'
     filePatterns: 'index.html'
     remoteDirectory: $(ftp.remote.dir)
