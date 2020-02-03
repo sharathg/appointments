@@ -3,8 +3,8 @@ pool:
   vmImage: 'macOS 10.13'
 
 schedules:
-- cron: "*/30 9-17 * * Mon-Fri"
-  displayName: Run Every 15 mins
+- cron: "*/30 6-17 * * Mon-Fri"
+  displayName: Run Every 30 mins
   branches:
     include:
     - master
