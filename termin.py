@@ -1,6 +1,6 @@
 from selenium.webdriver import Chrome, ChromeOptions
 from time import sleep
-import os
+import os, datetime
 
 
 appointment_count = "1"
@@ -44,7 +44,7 @@ try:
     hmtl_data = "<html><body><table border=1><tr><th>Date</th><th>Time Slots</th></tr>"
     for date in dates:
         hmtl_data += "<tr><td><b>{}</b></td><td>{}</td></tr>".format(date, ", ".join(dates[date]))
-    hmtl_data += "</table></body></html>"
+    hmtl_data += "</table><br><br><br>Last Updated: {}</body></html>".format(datetime.datetime.now())
     with open("results/index.html", "w") as fp:
         fp.write(hmtl_data)
 
