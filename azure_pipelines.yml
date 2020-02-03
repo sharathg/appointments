@@ -1,0 +1,25 @@
+
+pool:
+  vmImage: 'macOS 10.13'
+
+steps:
+
+- bash: 'pip3 install -r requirements.txt'
+  displayName: 'PIP Install'
+
+- bash: 'python3 termin.py'
+  env:
+      url: $(termin.url)
+      termin_id: $(termin.id)
+  displayName: 'Pull Termin'
+
+- task: FtpUpload@2
+  displayName: 'FTP Upload'
+  inputs:
+    credentialsOption: inputs
+    serverUrl: $(ftp.url)
+    username: $(ftp.user)
+    password: $(ftp.pass)
+    rootDirectory: '/'
+    filePatterns: 'index.html'
+    remoteDirectory: $(ftp.remote.dir)
