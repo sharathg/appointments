@@ -26,6 +26,7 @@ try:
     driver.find_element_by_xpath(count_drp_dwn).send_keys(appointment_count)
     driver.find_element_by_xpath(submit_count).click()
     i = 0
+    sleep(2)
     for avail_date in driver.find_elements_by_xpath(bookable_date):
         date_text = avail_date.get_attribute("href").split("'")[-2]
         appointments = []
