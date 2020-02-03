@@ -7,7 +7,7 @@ steps:
 - bash: 'pip3 install -r requirements.txt'
   displayName: 'PIP Install'
 
-- bash: 'python3 termin.py'
+- bash: 'mkdir results && python3 termin.py'
   env:
       url: $(termin.url)
       termin_id: $(termin.id)
