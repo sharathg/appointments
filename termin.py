@@ -6,7 +6,6 @@ import os, datetime
 appointment_count = "1"
 termin_id = os.environ['termin_id']
 url = os.environ['url'] + termin_id
-print(url)
 count_drp_dwn = '//select'
 submit_count = '//input[@type="submit"]'
 bookable_date = '//a[contains(@class, "nat_calendar_weekday_bookable")]'
